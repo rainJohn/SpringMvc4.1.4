@@ -1,8 +1,7 @@
 package demo.mapper;
 
-import org.apache.ibatis.annotations.Param;
-
 import demo.entity.User;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * UserMapper数据库操作接口类

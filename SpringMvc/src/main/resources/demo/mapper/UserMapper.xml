@@ -4,7 +4,7 @@
 
 	<!-- 通用查询结果列-->
 	<sql id="Base_Column_List">
-		 id, age, name
+		 id, age, name, birthday
 	</sql>
 
 	<!-- 查询（根据主键ID查询） -->
@@ -24,9 +24,9 @@
 	<!-- 添加 -->
 	<insert id="insert" parameterType="user">
 		 INSERT INTO user
- 		(id,age,name) 
+ 		(id,age,name,birthday) 
 		 VALUES 
- 		(#{id},#{age},#{name}) 
+ 		(#{id},#{age},#{name},#{birthday}) 
 	</insert>
 
 	<!-- 添加 （匹配有值的字段）-->
@@ -42,6 +42,9 @@
 			<if test="name != null">
 				 name,
 			</if>
+			<if test="birthday != null">
+				 birthday,
+			</if>
 
 		 </trim>
 		 <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -53,6 +56,9 @@
 			</if>
 			<if test="name != null">
 				 #{name},
+			</if>
+			<if test="birthday != null">
+				 #{birthday},
 			</if>
 		 </trim>
 	</insert>
@@ -67,6 +73,9 @@
 			<if test="name != null">
 				 name = #{name},
 			</if>
+			<if test="birthday != null">
+				 birthday = #{birthday},
+			</if>
 
  		 </set>
 		 WHERE id = #{id}
@@ -77,7 +86,8 @@
 		 UPDATE user
 		 SET 
 			 age = #{age},
-			 name = #{name}
+			 name = #{name},
+			 birthday = #{birthday}
 		 WHERE id = #{id}
 	</update>
 
