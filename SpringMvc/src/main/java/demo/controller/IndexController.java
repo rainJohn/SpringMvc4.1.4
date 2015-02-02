@@ -13,4 +13,13 @@ public class IndexController extends BaseController {
 		return "testpage";
 	}
 
+
+	/**
+	 * 异常 404 提示页
+	 */
+	@RequestMapping("/404")
+	public String error_404() {
+		return "error/404";
+	}
+
 }
