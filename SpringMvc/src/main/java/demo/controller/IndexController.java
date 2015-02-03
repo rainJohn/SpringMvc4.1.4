@@ -15,6 +15,18 @@ public class IndexController extends BaseController {
 
 
 	/**
+	 * 发送邮件
+	 */
+	@RequestMapping("/mail")
+	public String mail( Model model ) {
+		String receiver = "243194995@qq.com";// write here receiver id
+		boolean send = mail.sendMail(receiver, "hi spring", "this is a test mail!");
+		model.addAttribute("param", send ? "邮件发送成功." : "邮件发送失败.");
+		return "testpage";
+	}
+
+
+	/**
 	 * 异常 404 提示页
 	 */
 	@RequestMapping("/404")
